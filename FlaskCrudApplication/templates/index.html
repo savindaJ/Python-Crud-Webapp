@@ -22,6 +22,7 @@
         <div class="row">
             <div class="col md-12">
                 <h2>Student List
+                    <!--form button-->
                     <button type="button" class="btn btn-dark me-2" data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop">
                         Add New Customer
@@ -41,8 +42,10 @@
                         <td>thantrige32@gmail.com</td>
                         <td>0703973327</td>
                         <td>
-                            <a href="" class="btn btn-warning btn-xs" data-toggle="modal"
-                               data-target="#modaledit">Edit</a>
+                            <button type="button" class="btn btn-dark me-2" data-bs-toggle="modal"
+                                    data-bs-target="#edit">
+                                Edit
+                            </button>
                             <a href="" class="btn btn-danger btn-xs" onclick="return confirm('are you sure to delete')">delete</a>
                         </td>
                     </tr>
@@ -50,6 +53,7 @@
             </div>
         </div>
 
+        <!--form-->
         <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
              aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
@@ -64,27 +68,70 @@
                         <form class="w-75">
                             <div class="mb-3">
                                 <label for="cusId" class="form-label">Customer ID</label>
-                                <input type="text" class="form-control" id="cusId">
+                                <input type="text" class="form-control" id="cusId" name="id" required="1">
                             </div>
                             <div class="mb-3">
                                 <label for="cusName" class="form-label">Customer Name</label>
-                                <input type="text" class="form-control" id="cusName">
+                                <input type="text" class="form-control" id="cusName" name="name" required="1">
                             </div>
                             <div class="mb-3">
-                                <label for="cusAddress" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="cusAddress">
+                                <label for="cusAddress" class="form-label">gmail</label>
+                                <input type="text" class="form-control" id="cusAddress" name="gmail" required="1">
                             </div>
                             <div class="mb-3">
-                                <label for="cusSalary" class="form-label">Salary</label>
-                                <input type="text" class="form-control" id="cusSalary">
+                                <label for="cusSalary" class="form-label">phone</label>
+                                <input type="text" class="form-control" id="cusSalary" name="phone" required="1">
                             </div>
                         </form>
                     </div>
 
                     <div class="modal-footer">
                         <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success" id="btnSave" data-bs-dismiss="modal">Save</button>
+                        <button type="submit" class="btn btn-success" id="btnSave" data-bs-dismiss="modal">Save</button>
                     </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--edit form-->
+        <div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackEditLabel">Edit Customers</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="d-flex justify-content-center">
+                        <form class="w-75">
+                            <div class="mb-3">
+                                <label for="cusId" class="form-label">Customer ID</label>
+                                <input type="text" class="form-control" id="EditcusId" name="id" required="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusName" class="form-label">Customer Name</label>
+                                <input type="text" class="form-control" id="EditcusName" name="name" required="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusAddress" class="form-label">gmail</label>
+                                <input type="text" class="form-control" id="EditcusAddress" name="gmail" required="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusSalary" class="form-label">phone</label>
+                                <input type="text" class="form-control" id="EditcusSalary" name="phone" required="1">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="EditbtnSave" data-bs-dismiss="modal">update
+                        </button>
+                    </div>
+
                 </div>
             </div>
         </div>
