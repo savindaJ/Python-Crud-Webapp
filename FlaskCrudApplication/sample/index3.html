@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Crud Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+{% block body %}
+
+<div class="container">
+    <div class="well text-center">
+        <h1>Crud Application</h1>
+    </div>
+
+    <div class="container well">
+        <div class="row">
+            <div class="col md-12">
+                <h2>Student List
+                    <!--form button-->
+                    <button type="button" class="btn btn-dark me-2" data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop">
+                        Add New Customer
+                    </button>
+                </h2>
+                <table class="table table-striped">
+                    <tr>
+                        <th>serial</th>
+                        <th>name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>savinda</td>
+                        <td>thantrige32@gmail.com</td>
+                        <td>0703973327</td>
+                        <td>
+                            <button type="button" class="btn btn-dark me-2" data-bs-toggle="modal"
+                                    data-bs-target="#edit">
+                                Edit
+                            </button>
+                            <a href="" class="btn btn-danger btn-xs" onclick="return confirm('are you sure to delete')">delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!--form-->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Add Customers</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="d-flex justify-content-center">
+                        <form class="w-75" method="POST" action="{{url_for('insert')}}">
+                            <div class="mb-3">
+                                <label for="cusId" class="form-label">Customer ID</label>
+                                <input type="text" class="form-control" id="cusId" name="id" required="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusName" class="form-label">Customer Name</label>
+                                <input type="text" class="form-control" id="cusName" name="name" required="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusAddress" class="form-label">gmail</label>
+                                <input type="text" class="form-control" id="cusAddress" name="gmail" required="1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusSalary" class="form-label">phone</label>
+                                <input type="text" class="form-control" id="cusSalary" name="phone" required="1">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="btnSave" data-bs-dismiss="modal">Save</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!--edit form-->
+        <div class="modal fade" id="edit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+             aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackEditLabel">Edit Customers</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+
+                    <!-- Form -->
+                    <div class="d-flex justify-content-center">
+                        <form class="w-75">
+                            <div class="mb-3">
+                                <label for="cusId" class="form-label">Customer ID</label>
+                                <input type="text" class="form-control" id="EditcusId" name="id" value="C001">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusName" class="form-label">Customer Name</label>
+                                <input type="text" class="form-control" id="EditcusName" name="name" value="Savinda">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusAddress" class="form-label">gmail</label>
+                                <input type="text" class="form-control" id="EditcusAddress" name="gmail" value="thantrige32@gmail.com">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cusSalary" class="form-label">phone</label>
+                                <input type="text" class="form-control" id="EditcusSalary" name="phone" value="003973327">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="EditbtnSave" data-bs-dismiss="modal">update
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="well">
+        <h3>website:www.sample.com
+            <span class="pull-right">Like Us:www.facebook.com</span></h3>
+    </div>
+</div>
+
+{% endblock %}
+
+
+</body>
+
+<script type="text/javascript" src="{{url_for('static' , filename='js/jquery-3.2.1.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static' , filename='js/bootstrap.min.js')}}"></script>
+
+</html>
