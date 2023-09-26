@@ -20,7 +20,7 @@ def Index():
     data = cur.fetchall()
     cur.close()
 
-    return render_template('index2.html')
+    return render_template('index.html', customer= data)
 
 
 @app.route('/insert', methods=['POST'])
@@ -57,7 +57,7 @@ def update():
         print(email)
         cur.execute("""
                UPDATE customer
-               SET name=%s, email=%s, phone=%s
+               SET name=%s, gmail=%s, phone=%s
                WHERE id=%s
             """, (name, email, phone, id_data))
         flash("Data Updated Successfully")
