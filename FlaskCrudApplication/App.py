@@ -27,12 +27,13 @@ def Index():
 def insert():
     if request.method == "POST":
         flash("Data Inserted Successfully")
+        id = request.form['id']
         name = request.form['name']
         email = request.form['email']
         phone = request.form['phone']
         print(email, name, phone)
         # # cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO customer (id, name, gmail, phone) VALUES (%s, %s, %s)", (name, email, phone))
+        cur.execute("INSERT INTO customer (id, name, gmail, phone) VALUES (%s, %s, %s, %s)", (id, name, email, phone))
         con.commit()
         return redirect(url_for('Index'))
 
