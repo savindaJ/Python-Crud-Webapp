@@ -32,7 +32,7 @@ def insert():
         phone = request.form['phone']
         print(email, name, phone)
         # # cur = mysql.connection.cursor()
-        cur.execute("INSERT INTO customer (name, gmail, phone) VALUES (%s, %s, %s)", (name, email, phone))
+        cur.execute("INSERT INTO customer (id, name, gmail, phone) VALUES (%s, %s, %s)", (name, email, phone))
         con.commit()
         return redirect(url_for('Index'))
 
