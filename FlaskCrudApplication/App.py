@@ -4,11 +4,6 @@ import pymysql
 app = Flask(__name__)
 app.secret_key = 'many random bytes'
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'crud'
-
 con = pymysql.connect(host='localhost', user='root', password='80221474', charset='utf8', db='sample_web')
 cur = con.cursor()
 
